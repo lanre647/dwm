@@ -22,7 +22,7 @@ static const char col_gray2[] = "#2a2a37"; /* Inactive window border */
 static const char col_gray3[] = "#dcd7ba"; /* Inactive text (Old Paper) */
 static const char col_gray4[] = "#1f1f28"; /* Active text */
 static const char col_cyan[] =
-    "#e82424"; /* Active border & Accent (Tsubaki Red) */
+    "#b36dcd"; /* Active border & Accent (Tsubaki Red) */
 static const char *colors[][3] = {
     /*               fg         bg         border   */
     [SchemeNorm] = {col_gray3, col_gray1, col_gray2},
