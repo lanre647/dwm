@@ -17,16 +17,25 @@ static int smartgaps =
     0; /* 1 means no outer gap when there is only one window */
 static const char *fonts[] = {"JetBrainsMono Nerd Font:size=11"};
 static const char dmenufont[] = "JetBrainsMono Nerd Font:size=11";
+#define baralpha 0xd0
+#define borderalpha OPAQUE
 static const char col_gray1[] = "#1f1f28"; /* Background (Sumi-Iro) */
 static const char col_gray2[] = "#2a2a37"; /* Inactive window border */
 static const char col_gray3[] = "#dcd7ba"; /* Inactive text (Old Paper) */
 static const char col_gray4[] = "#1f1f28"; /* Active text */
 static const char col_cyan[] =
     "#b36dcd"; /* Active border & Accent (Tsubaki Red) */
+
 static const char *colors[][3] = {
-    /*               fg         bg         border   */
+    /*               fg          bg          border   */
     [SchemeNorm] = {col_gray3, col_gray1, col_gray2},
     [SchemeSel] = {col_gray4, col_cyan, col_cyan},
+};
+
+static const unsigned int alphas[][3] = {
+    /*               fg      bg          border      */
+    [SchemeNorm] = {OPAQUE, baralpha, borderalpha},
+    [SchemeSel] = {OPAQUE, baralpha, borderalpha},
 };
 
 /* tagging */
