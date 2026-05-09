@@ -1,0 +1,5 @@
+#!/bin/bash
+
+WALL=$(nsxiv -tor ~/Pictures/wallpapers | head -n 1)
+
+[ -n "$WALL" ] && feh --bg-fill "$WALL"
