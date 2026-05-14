@@ -16,14 +16,14 @@ static const unsigned int gappiv = 10; /* vert inner gap between windows */
 static const unsigned int gappoh =
     10; /* horiz outer gap between windows and screen edge */
 static const unsigned int gappov =
-    30; /* vert outer gap between windows and screen edge */
+    10; /* vert outer gap between windows and screen edge */
 static int smartgaps =
     0; /* 1 means no outer gap when there is only one window */
 
 static const char *fonts[] = {"JetBrainsMono Nerd Font:size=11"};
 static const char dmenufont[] = "JetBrainsMono Nerd Font:size=11";
 
-#define baralpha 0x66
+#define baralpha 0x99
 #define borderalpha OPAQUE
 
 static const char col_gray1[] = "#16161e"; /* background */
@@ -32,20 +32,20 @@ static const char col_gray3[] = "#d8dee9"; /* inactive text */
 static const char col_gray4[] = "#eceff4"; /* active text */
 static const char col_cyan[] = "#5d7bb6";  /* muted blue accent */
 
-/*static const char *colors[][3] = {
+static const char *colors[][3] = {
     //               fg         bg        border
     [SchemeNorm] = {col_gray3, col_gray1, col_gray2},
     [SchemeSel] = {col_gray4, col_cyan, col_cyan},
-};*/
-
-// Include the pywal colors
-#include "/home/lanre/.cache/wal/colors-wal-dwm.h"
+};
 
 static const unsigned int alphas[][3] = {
     /*               fg      bg        border      */
     [SchemeNorm] = {OPAQUE, baralpha, borderalpha},
     [SchemeSel] = {OPAQUE, baralpha, borderalpha},
 };
+
+// Include the pywal colors
+// #include "/home/lanre/.cache/wal/colors-wal-dwm.h"
 
 /* tagging */
 static const char *tags[] = {"一", "二", "三", "四", "五",
@@ -114,8 +114,8 @@ static const Layout layouts[] = {
 static char dmenumon[2] =
     "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = {
-    "dmenu_run", "-m",    dmenumon, "-fn",  dmenufont, "-nb",  norm_bg,
-    "-nf",       norm_fg, "-sb",    sel_bg, "-sf",     sel_fg, NULL};
+    "dmenu_run", "-m",      dmenumon, "-fn",    dmenufont, "-nb",     col_gray1,
+    "-nf",       col_gray3, "-sb",    col_cyan, "-sf",     col_gray4, NULL};
 static const char *termcmd[] = {"kitty", NULL};
 static const char *browsercmd[] = {"firefox", NULL};
 static const char *fmcmd[] = {"pcmanfm", NULL};
