@@ -6,13 +6,13 @@ static const unsigned int snap = 32;    /* snap pixel */
 static const int showbar = 1;           /* 0 means no bar */
 static const int topbar = 1;            /* 0 means bottom bar */
 static const int vertpad = 5;           /* vertical padding of bar */
-static const int sidepad = 4;           /* horizontal padding of bar */
+static const int sidepad = 6;           /* horizontal padding of bar */
 static const int horizpadbar = 6;       /* horizontal padding for statusbar */
-static const int vertpadbar = 4;        /* vertical padding for statusbar */
+static const int vertpadbar = 6;        /* vertical padding for statusbar */
 static const int swallowfloating =
     0; /* 1 means swallow floating windows by default */
-static const unsigned int gappih = 20; /* horiz inner gap between windows */
-static const unsigned int gappiv = 10; /* vert inner gap between windows */
+static const unsigned int gappih = 9; /* horiz inner gap between windows */
+static const unsigned int gappiv = 9; /* vert inner gap between windows */
 static const unsigned int gappoh =
     10; /* horiz outer gap between windows and screen edge */
 static const unsigned int gappov =
@@ -23,14 +23,14 @@ static int smartgaps =
 static const char *fonts[] = {"JetBrainsMono Nerd Font:size=11"};
 static const char dmenufont[] = "JetBrainsMono Nerd Font:size=11";
 
-#define baralpha 0x99
+#define baralpha 0x33
 #define borderalpha OPAQUE
 
 static const char col_gray1[] = "#16161e"; /* background */
 static const char col_gray2[] = "#252535"; /* inactive border */
 static const char col_gray3[] = "#d8dee9"; /* inactive text */
-static const char col_gray4[] = "#eceff4"; /* active text */
-static const char col_cyan[] = "#5d7bb6";  /* muted blue accent */
+static const char col_gray4[] = "#111111"; /* active text */
+static const char col_cyan[] = "#a1dc9e";  /* muted blue accent */
 
 static const char *colors[][3] = {
     //               fg         bg        border
@@ -51,10 +51,14 @@ static const unsigned int alphas[][3] = {
 static const char *tags[] = {"一", "二", "三", "四", "五",
                              "六", "七", "八", "九"};
 
-static const unsigned int ulinepad		= 5;	/* horizontal padding between the underline and tag */
-static const unsigned int ulinestroke	= 2;	/* thickness / height of the underline */
-static const unsigned int ulinevoffset	= 0;	/* how far above the bottom of the bar the line should appear */
-static const int ulineall				= 0;	/* 1 to show underline on all tags, 0 for just the active ones */
+static const unsigned int ulinepad =
+    5; /* horizontal padding between the underline and tag */
+static const unsigned int ulinestroke =
+    2; /* thickness / height of the underline */
+static const unsigned int ulinevoffset =
+    0; /* how far above the bottom of the bar the line should appear */
+static const int ulineall =
+    0; /* 1 to show underline on all tags, 0 for just the active ones */
 
 static const Rule rules[] = {
     /* xprop(1):
@@ -141,7 +145,7 @@ static const Key keys[] = {
     {MODKEY, XK_Return, spawn, {.v = termcmd}},
     {MODKEY | ShiftMask, XK_b, togglebar, {0}},
     {MODKEY, XK_b, spawn, {.v = browsercmd}},
-    {MODKEY | ShiftMask, XK_p, spawn, {.v = fmcmd}},
+    {MODKEY, XK_e, spawn, {.v = fmcmd}},
     {MODKEY, XK_Print, spawn, {.v = screenshotcmd}},
     {MODKEY | ShiftMask, XK_Print, spawn, {.v = selectshotcmd}},
     {MODKEY, XK_v, spawn, {.v = clipmenucmd}},
@@ -177,7 +181,7 @@ static const Key keys[] = {
     {MODKEY | Mod1Mask, XK_0, togglegaps, {0}},
     {MODKEY | Mod1Mask | ShiftMask, XK_0, defaultgaps, {0}},
     {MODKEY, XK_Tab, view, {0}},
-    {MODKEY | ShiftMask, XK_c, killclient, {0}},
+    {MODKEY, XK_q, killclient, {0}},
     {MODKEY, XK_f, setlayout, {.v = &layouts[3]}},
     {MODKEY, XK_m, setlayout, {.v = &layouts[1]}},
     {MODKEY, XK_t, setlayout, {.v = &layouts[0]}},
