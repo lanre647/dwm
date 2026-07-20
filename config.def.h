@@ -20,8 +20,8 @@ static const unsigned int gappov =
 static int smartgaps =
     0; /* 1 means no outer gap when there is only one window */
 
-static const char *fonts[] = {"JetBrainsMono Nerd Font:size=11"};
-static const char dmenufont[] = "JetBrainsMono Nerd Font:size=11";
+static const char *fonts[] = {"JetBrainsMono Nerd Font:size=12"};
+static const char dmenufont[] = "JetBrainsMono Nerd Font:size=13";
 
 #define baralpha 0x33
 #define borderalpha OPAQUE
@@ -133,6 +133,7 @@ static const char *screenshotcmd[] = {"/home/lanre/.local/bin/take-screenshot",
 static const char *selectshotcmd[] = {"/home/lanre/.local/bin/take-screenshot",
                                       "select", NULL};
 static const char *clipmenucmd[] = {"clipmenu", NULL};
+static const char *powermenucmd[] = {"powermenu", NULL};
 static const char *lockcmd[] = {"betterlockscreen", "-l", NULL};
 static const char *colorpickcmd[] = {
     "sh", "-c", "xcolor | xclip -selection clipboard", NULL};
@@ -198,7 +199,9 @@ static const Key keys[] = {
     {MODKEY | ShiftMask, XK_period, tagmon, {.i = +1}},
     TAGKEYS(XK_1, 0) TAGKEYS(XK_2, 1) TAGKEYS(XK_3, 2) TAGKEYS(XK_4, 3)
         TAGKEYS(XK_5, 4) TAGKEYS(XK_6, 5) TAGKEYS(XK_7, 6) TAGKEYS(XK_8, 7)
-            TAGKEYS(XK_9, 8){MODKEY | ShiftMask, XK_q, quit, {0}},
+            TAGKEYS(XK_9, 8)
+    //{MODKEY | ShiftMask, XK_q, quit, {0}},
+    {MODKEY | ShiftMask, XK_q, spawn, {.v = powermenucmd}},
     {MODKEY | ControlMask | ShiftMask, XK_q, quit, {1}},
 };
 
